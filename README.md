@@ -435,7 +435,7 @@ Run 可能以 `COMPLETED_WITH_REJECTIONS` 正常结束。`REJECTED` 和 `MAX_ROU
 ## 开发约定
 
 - 正式在线入口只有 `agents/wanphysics/run_videophy2_loop_v2.py`。
-- `run_actual_trials_v2.py` 是退役的研究入口，不用于正式运行。
+- 历史退役入口与调试配置已归档至 `archive/`（如 `archive/legacy_agents/run_actual_trials_v2.py`），不用于正式运行。
 - 接口契约以 `schemas/`、`src/physgenloop/contracts.py`、`src/physgenloop/learning_repair/contracts.py` 和 `generators/wanphysics/v2/trials.py` 为准。
 - 新功能应接入现有 Runner、Gate、Policy、Executor 和 Artifact 边界，不新增平行主链路。
 - 不提交模型、权重、视频、输出目录、虚拟环境、密钥和机器绝对路径。

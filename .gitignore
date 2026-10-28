@@ -37,6 +37,7 @@ e2e_loop_full.py
 # Personal documents and internal worklogs (local only)
 后续任务文档/
 worklog/
+archive/
 
 # 保留少量示例与轻量证据
 !data/samples/example_*/

@@ -2,7 +2,12 @@ import inspect
 
 from generators.wanphysics.adapter import WanSubprocessGenerator
 from generators.wanphysics.v2.runner import ActionAwareRunnerV2
-from physgenloop.learning_repair.contracts import ExecutionRequest, ScoreBundle
+from physgenloop.learning_repair.base_contracts import RepairAction
+from physgenloop.learning_repair.contracts import (
+    DECISION_SCHEMA_VERSION,
+    ExecutionRequest,
+    ScoreBundle,
+)
 
 
 def test_online_interfaces_do_not_expose_physics_plan():
@@ -22,6 +27,12 @@ def test_score_bundle_has_dual_semantic_scores():
 
 
 def test_decision_schema_is_v2():
-    from physgenloop.learning_repair.contracts import DECISION_SCHEMA_VERSION
-
     assert DECISION_SCHEMA_VERSION == "learning-repair-decision/2.0"
+
+
+def test_action_contract_is_strictly_three_actions():
+    assert tuple(action.value for action in RepairAction) == (
+        "prompt_repair",
+        "local_editing",
+        "reject",
+    )

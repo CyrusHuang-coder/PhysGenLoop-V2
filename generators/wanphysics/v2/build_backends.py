@@ -345,8 +345,13 @@ def build_v2_runner(
 
     project_root = Path(paths.get("root") or _PROJECT_ROOT).resolve()
 
+    import sys
     python = _resolve_path(paths.get("envs", {}).get("main"), project_root)
+    if not python or not Path(python).exists():
+        python = sys.executable
     vllm_python = _resolve_path(paths.get("envs", {}).get("vllm"), project_root)
+    if not vllm_python or not Path(vllm_python).exists():
+        vllm_python = sys.executable
     eval_step = _resolve_path(paths.get("eval_step"), project_root)
 
     artifacts = RunArtifacts(run_dir)

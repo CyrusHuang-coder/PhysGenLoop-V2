@@ -4,9 +4,9 @@
 runtime:
   pipeline_version: v2
   enabled: false
-  gpu_mode: dual_gpu
+  gpu_mode: single_handoff
   generator_gpu: 0
-  critic_gpu: 1
+  critic_gpu: 0
   strict_report_roundtrip: true
   persist_full_critic_report: true
   write_repair_trace: true

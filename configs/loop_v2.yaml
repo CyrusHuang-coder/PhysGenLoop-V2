@@ -7,9 +7,9 @@
 runtime:
   pipeline_version: v2
   enabled: false              # V2 总开关；false 时入口直接退出，不触碰任何后端
-  gpu_mode: dual_gpu          # dual_gpu | single_handoff；不足两卡自动回退单卡
+  gpu_mode: single_handoff    # 针对单卡 4090 优化：交替握手释放显存
   generator_gpu: 0
-  critic_gpu: 1
+  critic_gpu: 0
   strict_report_roundtrip: true   # CriticReport 解析失败即停当前 repair，保 raw payload
   persist_full_critic_report: true
   write_repair_trace: true

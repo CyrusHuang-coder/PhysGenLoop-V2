@@ -161,6 +161,7 @@ class Sam2VlmSubprocessCritic:
                     str(self._vllm_gpu_util),
                     "--max-model-len",
                     str(self._vllm_max_model_len),
+                    "--trust-remote-code",
                 ],
                 stdout=log_file,
                 stderr=subprocess.STDOUT,

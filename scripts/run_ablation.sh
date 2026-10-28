@@ -93,3 +93,4 @@ echo "Process started with PID: $PID"
 echo "To track log: tail -f $LOG_FILE"
 echo "After all finishes, run:"
 echo "  python scripts/plot_ablation_results.py --outputs-dir outputs"
+

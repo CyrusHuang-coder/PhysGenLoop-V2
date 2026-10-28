@@ -94,3 +94,4 @@ loop:
   base_seed: 42
   error_scope_threshold: 0.4
   default_total_frames: 81
+

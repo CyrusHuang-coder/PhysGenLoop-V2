@@ -14,7 +14,7 @@ runtime:
   persist_full_critic_report: true
   write_repair_trace: true
   resume: true
-  fail_on_degraded_critic: true   # enforce 下 SAM2 降级视为不达标
+  fail_on_degraded_critic: false  # 允许原生 SAM2，无需强求可选的 C 扩展编译阻断链路
 
 # generator:
 #   height: 600  #分辨率

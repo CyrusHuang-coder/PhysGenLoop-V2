@@ -11,7 +11,7 @@ runtime:
   persist_full_critic_report: true
   write_repair_trace: true
   resume: true
-  fail_on_degraded_critic: true
+  fail_on_degraded_critic: false
 
 critic:
   profile: sam2_seeded_rules

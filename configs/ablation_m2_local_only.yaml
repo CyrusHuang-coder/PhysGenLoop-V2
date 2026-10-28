@@ -1,0 +1,96 @@
+# PhysGenLoop WanPhysics V2 消融配置 M2: 纯局部编辑修复 (Local Only Ablation)
+# 说明：冻结 Prompt 重写能力 (prompt_repair.enabled: false)，所有违背仅允许由 ProPainter 局部编辑。
+
+runtime:
+  pipeline_version: v2
+  enabled: false
+  gpu_mode: dual_gpu
+  generator_gpu: 0
+  critic_gpu: 1
+  strict_report_roundtrip: true
+  persist_full_critic_report: true
+  write_repair_trace: true
+  resume: true
+  fail_on_degraded_critic: true
+
+critic:
+  profile: sam2_seeded_rules
+  formal_profile_required: true
+  allow_rules_fallback: false
+  persist_raw_payload_on_error: true
+
+acceptance:
+  mode: enforce
+  require_decision_physical: true
+  require_no_blocking_violations: true
+  require_all_scores: true
+  require_non_degraded_critic: true
+  physics_score: 0.80
+  confidence: 0.60
+  coverage: 0.40
+  semantic_score: 0.85
+  original_prompt_semantic_score: 0.85
+  quality_score: 0.75
+  max_physics_drop: 0.00
+  max_semantic_drop: 0.03
+  max_original_prompt_semantic_drop: 0.03
+  max_quality_drop: 0.05
+
+local_editing:
+  enabled: true
+  require_mask: true
+  allow_full_frame_fallback: false
+  strict_manifest: true
+  propainter_repo: models/ProPainter
+  propainter_script: models/ProPainter/inference_propainter.py
+  propainter_weights: models/ProPainter/weights
+  python: envs/main/bin/python
+
+prompt_repair:
+  enabled: false             # 冻结 Prompt 动力学重构能力
+
+memory:
+  mode: retired
+
+policy:
+  mode: three_action_heuristic
+  minimum_coverage: 0.25
+  action_order: [local_editing, reject]
+
+trial:
+  enabled: true
+  schema_version: wan-repair-trial/3.0
+
+scorers:
+  quality_enabled: true
+  semantic_enabled: true
+  original_prompt_semantic_enabled: true
+  allow_score_substitution: false
+
+vllm:
+  ownership_mode: pidfile
+  stop_foreign_process: false
+  host: 127.0.0.1
+  port: 8000
+  gpu_memory_utilization: 0.65
+
+artifacts:
+  persist_full_critic: true
+  persist_raw_payload_on_error: true
+  persist_mask_manifest: true
+
+paths:
+  root: .
+  eval_step: agents/wanphysics/eval_step.py
+  outputs: outputs
+  videophy2_manifest: evaluation/manifests/videophy2_top20_golden.json
+  envs:
+    main: envs/main/bin/python
+    vllm: envs/vllm-cu128/bin/python
+
+loop:
+  max_rounds: 2
+  candidates_per_round: 1
+  base_seed: 42
+  error_scope_threshold: 0.4
+  default_total_frames: 81

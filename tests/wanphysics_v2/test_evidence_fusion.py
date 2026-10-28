@@ -116,3 +116,4 @@ def test_hard_violation_forces_violation_decision():
     assert enriched.decision == "violation"
     assert not enriched.is_physical
     assert enriched.physics_score == 0.4
+

@@ -19,3 +19,4 @@ def test_active_cli_has_no_force_or_proxy_flags():
 def test_explicit_output_root_is_final_directory(tmp_path):
     args = Namespace(output_root=str(tmp_path / "run"))
     assert _run_root(args) == (tmp_path / "run").resolve()
+

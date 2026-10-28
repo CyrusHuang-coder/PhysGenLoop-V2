@@ -36,3 +36,4 @@ def test_action_contract_is_strictly_three_actions():
         "local_editing",
         "reject",
     )
+

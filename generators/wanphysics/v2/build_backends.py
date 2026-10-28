@@ -444,8 +444,10 @@ def build_v2_runner(
     caps = dict(preflight.capability_mask)
     if not bool(local_cfg.get("enabled", False)):
         caps["local_editing"] = False
+    prompt_cfg = cfg.get("prompt_repair", {})
+    prompt_enabled = bool(prompt_cfg.get("enabled", True))
     caps = {
-        "prompt_repair": bool(caps.get("prompt_repair", True)),
+        "prompt_repair": bool(caps.get("prompt_repair", True) and prompt_enabled),
         "local_editing": bool(caps.get("local_editing", False)),
         "reject": True,
     }

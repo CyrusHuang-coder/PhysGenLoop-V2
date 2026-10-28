@@ -43,6 +43,7 @@ _CATEGORY_ALIASES = {
     "continuity": "continuity_violation",
     "continuity_violation": "continuity_violation",
     "appearance": "appearance_violation",
+    "appearance_violation": "appearance_violation",
 }
 
 

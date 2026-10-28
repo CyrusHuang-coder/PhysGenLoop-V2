@@ -1,0 +1,627 @@
+{
+  "schema_version": "1.0",
+  "description": "Curated 20 golden high-SNR physical video tasks for PhysGenLoop reproduction",
+  "samples": [
+    {
+      "sample_id": "videophy2-1f2f0e39f797fa1aa9f4",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "Someone removes a large tarp, revealing a gleaming new car underneath.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-1f2f0e39f797fa1aa9f4.mp4",
+      "prompt_group_id": "uncovering something",
+      "generator": "cogvideo",
+      "semantic_label": "adherent",
+      "physics_label": "violation",
+      "semantic_score": 5.0,
+      "physics_score": 3.0,
+      "physical_rules": [
+        "The tarp changes shape as it is moved.",
+        "The car remains stationary after the tarp is removed.",
+        "The tarp falls to the ground after being removed.",
+        "The tarp should be pulled away clearly and not vanish into the car"
+      ],
+      "raw_labels": {
+        "sa": "5",
+        "pc": "3",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The tarp changes shape as it is moved.', 'The car remains stationary after the tarp is removed.']",
+        "physics_rules_unfollowed": "['The tarp falls to the ground after being removed.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The tarp should be pulled away clearly and not vanish into the car']",
+        "metadata_rules": "{'The tarp changes shape as it is moved.': 'Elasticity', 'The car remains stationary after the tarp is removed.': 'Inertia', 'The tarp falls to the ground after being removed.': 'Gravity', 'The tarp should be pulled away clearly and not vanish into the car': ['Conservation of Mass']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/Someone_removes_a_large_tarp,_revealing_a_gleaming_new_car_underneath.mp4",
+      "sha256": "7f938e6d22c007077eddd32ff487287e1e12cd233c70d3ee02357c83ce627a1f"
+    },
+    {
+      "sample_id": "videophy2-40b90ba6b92a841bc2cc",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A child pushes a toy block off a table, and it falls to the floor, bouncing once.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-40b90ba6b92a841bc2cc.mp4",
+      "prompt_group_id": "pushing something off of something",
+      "generator": "hunyuan",
+      "semantic_label": "not_adherent",
+      "physics_label": "physical",
+      "semantic_score": 1.0,
+      "physics_score": 4.0,
+      "physical_rules": [
+        "The blocks maintain their shape when stacked.",
+        "The blocks do not roll off the table.",
+        "The height of the stack increases as more blocks are added."
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "4",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "['The blocks maintain their shape when stacked.', 'The blocks do not roll off the table.', 'The height of the stack increases as more blocks are added.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The blocks maintain their shape when stacked.': 'Hardness'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/hunyuan_xdit/A_child_pushes_a_toy_block_off_a_table,_and_it_falls_to_the_floor,_bouncing_once.mp4",
+      "sha256": "eb182f0a7ce98be45cf7b7cc261f268e646bf0b6bb3dadc121bfa8873febb713"
+    },
+    {
+      "sample_id": "videophy2-419829691c14308ec29b",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A child pushes a toy car across a carpeted floor; the car rolls a short distance before stopping.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-419829691c14308ec29b.mp4",
+      "prompt_group_id": "pushing something so that it slightly moves",
+      "generator": "ray2",
+      "semantic_label": "adherent",
+      "physics_label": "violation",
+      "semantic_score": 5.0,
+      "physics_score": 3.0,
+      "physical_rules": [
+        "The toy car moves across the floor.",
+        "The toy car eventually stops moving."
+      ],
+      "raw_labels": {
+        "sa": "5",
+        "pc": "3",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The toy car moves across the floor.', 'The toy car eventually stops moving.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The toy car moves across the floor.': 'Friction', 'The toy car eventually stops moving.': 'Friction'}"
+      },
+      "source_url": "https://storage.cdn-luma.com/dream_machine/a4a72790-e41d-4544-8df5-f9f5fb37dba2/7c2f778e-53bc-4c20-9a93-fe52e9ea5289_result.mp4",
+      "sha256": "0e95cc1157f32d10fdabcc1950bd638575ece86806c2b46afaa152e75617804f"
+    },
+    {
+      "sample_id": "videophy2-0662eb268be042fa99c6",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A baseball is thrown with great force; it hits a brick wall and leaves a visible mark.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-0662eb268be042fa99c6.mp4",
+      "prompt_group_id": "catching or throwing baseball",
+      "generator": "wan",
+      "semantic_label": "not_adherent",
+      "physics_label": "physical",
+      "semantic_score": 1.0,
+      "physics_score": 4.0,
+      "physical_rules": [
+        "The baseball falls downwards.",
+        "The baseball impacts the dirt."
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "4",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "['The baseball falls downwards.', 'The baseball impacts the dirt.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The baseball falls downwards.': 'Gravity', 'The baseball impacts the dirt.': 'Conservation of Momentum'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_baseball_is_thrown_with_great_force;_it_hits_a_brick_wall_and_leaves_a_visible_mark.mp4",
+      "sha256": "bafd3adf922b3c1007617a2cd484d7d28651e19bb9ca4cf11c1cb9cd334ccbf1"
+    },
+    {
+      "sample_id": "videophy2-0d73fa7a8934fd945a20",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A bowling ball rolls down a polished wooden lane, hitting the pins at the end.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-0d73fa7a8934fd945a20.mp4",
+      "prompt_group_id": "letting something roll along a flat surface",
+      "generator": "videocrafter",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 2.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The bowling balls maintain their shape and volume as they roll.",
+        "The bowling balls roll in a generally straight line down the lane.",
+        "The bowling balls slow down slightly as they roll.",
+        "The bowling ball travels along the path of least resistance without significant lateral deviation"
+      ],
+      "raw_labels": {
+        "sa": "2",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The bowling balls maintain their shape and volume as they roll.']",
+        "physics_rules_unfollowed": "['The bowling balls roll in a generally straight line down the lane.', 'The bowling balls slow down slightly as they roll.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The bowling ball travels along the path of least resistance without significant lateral deviation']",
+        "metadata_rules": "{'The bowling balls maintain their shape and volume as they roll.': 'Conservation of Mass', 'The bowling balls roll in a generally straight line down the lane.': 'Gravity', 'The bowling balls slow down slightly as they roll.': 'Friction', 'The bowling ball travels along the path of least resistance without significant lateral deviation': ['Friction']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_bowling_ball_rolls_down_a_polished_wooden_lane__hitting_the_pins_at_the_end_.mp4",
+      "sha256": "a5c4fceb16def54f928f673fa1ce5b30859406de0131b77c91bc2b0401ca4228"
+    },
+    {
+      "sample_id": "videophy2-10c92cb7d75874d3a9e8",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A tennis player serves, the ball leaves the racquet at high speed, and lands in the service box.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-10c92cb7d75874d3a9e8.mp4",
+      "prompt_group_id": "playing tennis",
+      "generator": "sora",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 1.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The tennis ball changes position after being hit.",
+        "The tennis ball follows a parabolic trajectory after being hit (ignoring air resistance).",
+        "The ball must make contact with the racket to change its trajectory"
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "[]",
+        "physics_rules_unfollowed": "['The tennis ball changes position after being hit.']",
+        "physics_rules_cannot_be_determined": "['The tennis ball follows a parabolic trajectory after being hit (ignoring air resistance).']",
+        "human_violated_rules": "['The ball must make contact with the racket to change its trajectory']",
+        "metadata_rules": "{'The tennis ball changes position after being hit.': 'Conservation of Momentum', 'The tennis ball follows a parabolic trajectory after being hit (ignoring air resistance).': 'Gravity', 'The ball must make contact with the racket to change its trajectory': ['Conservation of Momentum']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/sora_hard_videophy2/Perfect+Tennis+Serve.mp4",
+      "sha256": "ce1017e412034bf225bd02ca0ef7cd4acf55b1a8c0f3a4b9151b80128f5722e7"
+    },
+    {
+      "sample_id": "videophy2-2c0056ebff5ad0b1eab0",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A single domino tips over, causing a chain reaction of dominoes falling down a long slanted line.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-2c0056ebff5ad0b1eab0.mp4",
+      "prompt_group_id": "letting something roll down a slanted surface",
+      "generator": "sora",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 1.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The reflective surface shows a mirrored image of the dominoes.",
+        "The dominoes fall in a sequential order.",
+        "The dominoes topple, transferring their momentum to the next dominoes.",
+        "The backrow dominoes must fall independently instead of moving in a rigid, conveyor belt-like manner"
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The reflective surface shows a mirrored image of the dominoes.']",
+        "physics_rules_unfollowed": "['The dominoes fall in a sequential order.', 'The dominoes topple, transferring their momentum to the next dominoes.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The backrow dominoes must fall independently instead of moving in a rigid, conveyor belt-like manner']",
+        "metadata_rules": "{'The reflective surface shows a mirrored image of the dominoes.': 'Reflection', 'The dominoes fall in a sequential order.': 'Gravity', 'The dominoes topple, transferring their momentum to the next dominoes.': 'Conservation of Momentum', 'The backrow dominoes must fall independently instead of moving in a rigid, conveyor belt-like manner': ['Conservation of Momentum']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/sora_hard_videophy2/Domino+Chain+Reaction.mp4",
+      "sha256": "e0a0e2b2aedfa5a5b547694c8f11541a89320d0cf5acadd36957c13cda58cc32"
+    },
+    {
+      "sample_id": "videophy2-23ecd611d58d07857d67",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A spinning top made of wood slows and falls onto a wooden floor.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-23ecd611d58d07857d67.mp4",
+      "prompt_group_id": "spinning something that quickly stops spinning",
+      "generator": "videocrafter",
+      "semantic_label": "not_adherent",
+      "physics_label": "physical",
+      "semantic_score": 2.0,
+      "physics_score": 4.0,
+      "physical_rules": [
+        "The top's base remains in contact with the surface.",
+        "The top spins around its axis."
+      ],
+      "raw_labels": {
+        "sa": "2",
+        "pc": "4",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "[\"The top's base remains in contact with the surface.\", 'The top spins around its axis.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{\"The top's base remains in contact with the surface.\": 'Friction', 'The top spins around its axis.': 'Conservation of Angular Momentum'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/A_spinning_top_made_of_wood_slows_and_falls_onto_a_wooden_floor_.mp4",
+      "sha256": "5b601b9aac438119fd71543c08ac39ee2b4ba1becfaf03bd57eca810ba21c74e"
+    },
+    {
+      "sample_id": "videophy2-11e98b004769bb02f24c",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A person throws a yo-yo, and it strikes a rubber ball, causing the ball to move.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-11e98b004769bb02f24c.mp4",
+      "prompt_group_id": "yoyo",
+      "generator": "ray2",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 1.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The red object follows a parabolic trajectory after being hit.",
+        "The red object moves after being struck by the paddles.",
+        "The paddles and the red object deform slightly upon impact.",
+        "The red object should only move as a result of direct impact from the paddles."
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The red object follows a parabolic trajectory after being hit.']",
+        "physics_rules_unfollowed": "['The red object moves after being struck by the paddles.', 'The paddles and the red object deform slightly upon impact.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The red object should only move as a result of direct impact from the paddles.']",
+        "metadata_rules": "{'The red object follows a parabolic trajectory after being hit.': 'Gravity', 'The red object moves after being struck by the paddles.': 'Conservation of Momentum', 'The paddles and the red object deform slightly upon impact.': 'Elasticity', 'The red object should only move as a result of direct impact from the paddles.': ['Conservation of Momentum']}"
+      },
+      "source_url": "https://storage.cdn-luma.com/dream_machine/485329fc-f8ee-4c24-a1dd-44bf1393631e/6c6622bb-0abc-47ad-b80a-843803cb59ec_result.mp4",
+      "sha256": "d819fbd90256d565f662a1ab772a59fae09e378e2e6953cac075a35056326d96"
+    },
+    {
+      "sample_id": "videophy2-1bea647a8dfee0352349",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A roulette wheel is spun forcefully, the ball bouncing before settling in a slot.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-1bea647a8dfee0352349.mp4",
+      "prompt_group_id": "spinning something so it continues spinning",
+      "generator": "hunyuan",
+      "semantic_label": "adherent",
+      "physics_label": "violation",
+      "semantic_score": 4.0,
+      "physics_score": 3.0,
+      "physical_rules": [
+        "The ball changes direction when it collides with the wheel's rim or dividers."
+      ],
+      "raw_labels": {
+        "sa": "4",
+        "pc": "3",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "[\"The ball changes direction when it collides with the wheel's rim or dividers.\"]",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/hunyuan_xdit/A_roulette_wheel_is_spun_forcefully,_the_ball_bouncing_before_settling_in_a_slot.mp4",
+      "sha256": "d24965e2c4f770b1f55df0e1c8eb080f8c52d3892312d99017e524ecb331f656"
+    },
+    {
+      "sample_id": "videophy2-0d482d87df561af7666b",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A golfer chips the ball onto the green, the ball rolling smoothly towards the hole.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-0d482d87df561af7666b.mp4",
+      "prompt_group_id": "golf",
+      "generator": "sora",
+      "semantic_label": "not_adherent",
+      "physics_label": "physical",
+      "semantic_score": 3.0,
+      "physics_score": 5.0,
+      "physical_rules": [
+        "The golf ball moves along the ground towards the hole.",
+        "The golf ball's speed decreases as it rolls.",
+        "The golf club and the golf ball change position relative to one another after contact."
+      ],
+      "raw_labels": {
+        "sa": "3",
+        "pc": "5",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "['The golf ball moves along the ground towards the hole.', \"The golf ball's speed decreases as it rolls.\"]",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "['The golf club and the golf ball change position relative to one another after contact.']",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The golf ball moves along the ground towards the hole.': 'Friction', \"The golf ball's speed decreases as it rolls.\": 'Friction', 'The golf club and the golf ball change position relative to one another after contact.': 'Conservation of Momentum'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/sora_hard_videophy2/Perfect+Golf+Swing.mp4",
+      "sha256": "4009ff5beeac28a591580d1de6f3119a709c76c6c402386ccfc1f45e0668bb20"
+    },
+    {
+      "sample_id": "videophy2-0f93d7b139bccc4bf59c",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A heavy steel beam, resting on two supports, is lifted at one end by a crane until the beam begins to rotate and slides off the supports.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-0f93d7b139bccc4bf59c.mp4",
+      "prompt_group_id": "lifting a surface with something on it until it starts sliding down",
+      "generator": "wan",
+      "semantic_label": "adherent",
+      "physics_label": "violation",
+      "semantic_score": 4.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The crane hook moves downwards.",
+        "The I-beam remains stationary until the hook approaches.",
+        "The background remains unchanged.",
+        "The I-beam is lifted as a result of an upward force exerted by the crane hook"
+      ],
+      "raw_labels": {
+        "sa": "4",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "['The crane hook moves downwards.', 'The I-beam remains stationary until the hook approaches.', 'The background remains unchanged.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The I-beam is lifted as a result of an upward force exerted by the crane hook']",
+        "metadata_rules": "{'The crane hook moves downwards.': 'Gravity', 'The I-beam remains stationary until the hook approaches.': 'Friction', 'The I-beam is lifted as a result of an upward force exerted by the crane hook': [\"Newton's Third Law of Motion\"]}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/wan_videophy2_test_hard_upsampled/A_heavy_steel_beam,_resting_on_two_supports,_is_lifted_at_one_end_by_a_crane_until_the_beam_begins_to_rotate_and_slides_off_the_supports.mp4",
+      "sha256": "9ad9f7ca015705536aa7c257b0411cad63574e257b18ab53de7d38d7e22bf295"
+    },
+    {
+      "sample_id": "videophy2-21ebe90cc4ef980d34e8",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A person drop kicks a pumpkin across a cobblestone street, the pumpkin rolling before stopping.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-21ebe90cc4ef980d34e8.mp4",
+      "prompt_group_id": "drop kicking",
+      "generator": "cosmos",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 2.0,
+      "physics_score": 3.0,
+      "physical_rules": [
+        "The person's body moves up and down, and sideways. (Gravity)",
+        "The person's body moves from place to place with no change in visible mass. (Conservation of Mass)",
+        "The pumpkin remains stationary while the person moves around it."
+      ],
+      "raw_labels": {
+        "sa": "2",
+        "pc": "3",
+        "joint": "0",
+        "is_hard": "1",
+        "physics_rules_followed": "[\"The person's body moves up and down, and sideways. (Gravity)\", \"The person's body moves from place to place with no change in visible mass. (Conservation of Mass)\", 'The pumpkin remains stationary while the person moves around it.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{\"The person's body moves up and down, and sideways. (Gravity)\": 'Gravity', \"The person's body moves from place to place with no change in visible mass. (Conservation of Mass)\": 'Conservation of Mass', 'The pumpkin remains stationary while the person moves around it.': 'Inertia'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_person_drop_kicks_a_pumpkin_across_a_cobblestone_street,_the_pumpkin_rolling_before_stopping.mp4",
+      "sha256": "04a4e0bc409e679face31b0a398adddcb96ce0314af0ff3834a0658665451c25"
+    },
+    {
+      "sample_id": "videophy2-264694e3a22d25cb425f",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A roller skater pushes off a wall, gaining speed and gliding across a smooth concrete surface.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-264694e3a22d25cb425f.mp4",
+      "prompt_group_id": "roller skating",
+      "generator": "sora",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 2.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The person moves forward on the roller skates.",
+        "The roller skates maintain contact with the concrete.",
+        "The person's body remains upright.",
+        "The person's body maintains angular momentum, requiring the entire body to rotate together when changing direction"
+      ],
+      "raw_labels": {
+        "sa": "2",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The person moves forward on the roller skates.', 'The roller skates maintain contact with the concrete.', \"The person's body remains upright.\"]",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[\"The person's body maintains angular momentum, requiring the entire body to rotate together when changing direction\"]",
+        "metadata_rules": "{'The person moves forward on the roller skates.': 'Friction', 'The roller skates maintain contact with the concrete.': 'Friction', \"The person's body remains upright.\": 'Gravity', \"The person's body maintains angular momentum, requiring the entire body to rotate together when changing direction\": ['Conservation of Angular Momentum']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/sora_hard_videophy2/Urban+Skating+Adventure.mp4",
+      "sha256": "2f80cee77a4630e026603775d7a8f9588b79c037dd194dd9b75a7471e39c2a79"
+    },
+    {
+      "sample_id": "videophy2-302f0f332e3532ce46a7",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "Three metal balls are juggled; the sound of the metal hitting the juggler's hands is omitted, only visual impact is shown.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-302f0f332e3532ce46a7.mp4",
+      "prompt_group_id": "juggling balls",
+      "generator": "cogvideo",
+      "semantic_label": "adherent",
+      "physics_label": "physical",
+      "semantic_score": 4.0,
+      "physics_score": 5.0,
+      "physical_rules": [
+        "The balls change position in the air.",
+        "The balls change direction upon impact with the juggler's hands.",
+        "The balls maintain their shape throughout the juggling."
+      ],
+      "raw_labels": {
+        "sa": "4",
+        "pc": "5",
+        "joint": "1",
+        "is_hard": "0",
+        "physics_rules_followed": "['The balls change position in the air.', \"The balls change direction upon impact with the juggler's hands.\", 'The balls maintain their shape throughout the juggling.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The balls change position in the air.': 'Gravity', \"The balls change direction upon impact with the juggler's hands.\": 'Elasticity', 'The balls maintain their shape throughout the juggling.': 'Elasticity'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cogvideoX5b_hard_upsampled/Three_metal_balls_are_juggled;_the_sound_of_the_metal_hitting_the_juggler's_hands_is_omitted,_only_visual_impact_is_shown.mp4",
+      "sha256": "942ed3b88ff42f52cfedf7d92b198dc114635abd5ad6c58d878572a2f2b477d3"
+    },
+    {
+      "sample_id": "videophy2-3bdd61aeb029029551ae",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A robotic arm uses a slender tool to carefully reposition a circuit board, nudging it a fraction of an inch.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-3bdd61aeb029029551ae.mp4",
+      "prompt_group_id": "poking something so it slightly moves",
+      "generator": "cosmos",
+      "semantic_label": "adherent",
+      "physics_label": "physical",
+      "semantic_score": 4.0,
+      "physics_score": 5.0,
+      "physical_rules": [
+        "The robotic arm moves the tool.",
+        "The tool maintains its shape during the interaction.",
+        "The circuit board changes position."
+      ],
+      "raw_labels": {
+        "sa": "4",
+        "pc": "5",
+        "joint": "1",
+        "is_hard": "0",
+        "physics_rules_followed": "['The robotic arm moves the tool.', 'The tool maintains its shape during the interaction.']",
+        "physics_rules_unfollowed": "['The circuit board changes position.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The robotic arm moves the tool.': 'None', 'The tool maintains its shape during the interaction.': 'Elasticity', 'The circuit board changes position.': 'None'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_robotic_arm_uses_a_slender_tool_to_carefully_reposition_a_circuit_board,_nudging_it_a_fraction_of_an_inch.mp4",
+      "sha256": "14ef6eef92449640ac56646f33c9ed8e0d783920c91273800a6d8f44918327bf"
+    },
+    {
+      "sample_id": "videophy2-51d8179880af78521c8f",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "Three metal balls are juggled; the sound of the metal hitting the juggler's hands is omitted, only visual impact is shown.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-51d8179880af78521c8f.mp4",
+      "prompt_group_id": "juggling balls",
+      "generator": "videocrafter",
+      "semantic_label": "not_adherent",
+      "physics_label": "physical",
+      "semantic_score": 1.0,
+      "physics_score": 4.0,
+      "physical_rules": [
+        "The colored orbs move in a rolling motion.",
+        "The colored orbs change position over time.",
+        "The sphere remains stationary unless acted upon by the colored orbs."
+      ],
+      "raw_labels": {
+        "sa": "1",
+        "pc": "4",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The colored orbs move in a rolling motion.', 'The colored orbs change position over time.']",
+        "physics_rules_unfollowed": "['The sphere remains stationary unless acted upon by the colored orbs.']",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{'The colored orbs move in a rolling motion.': 'Friction', 'The colored orbs change position over time.': 'Conservation of Momentum', 'The sphere remains stationary unless acted upon by the colored orbs.': 'Inertia'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/videocrafter_videophy2_hard/Three_metal_balls_are_juggled__the_sound_of_the_metal_hitting_the_juggler_s_hands_is_omitted__only_visual_impact_is_shown_.mp4",
+      "sha256": "d9caacc7a154b63604ac8b8958ff35d8c2165915f2230e2a8eba9db5786bfe26"
+    },
+    {
+      "sample_id": "videophy2-23c669622430b5ba02c9",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A climber falls, the rope catching them, and the impact visible on the belaying device.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-23c669622430b5ba02c9.mp4",
+      "prompt_group_id": "rock climbing",
+      "generator": "ray2",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 3.0,
+      "physics_score": 3.0,
+      "physical_rules": [
+        "The climber's body moves upwards along the rock face.",
+        "The climber's position changes over time.",
+        "The climber uses his hands and feet to grip the rock face."
+      ],
+      "raw_labels": {
+        "sa": "3",
+        "pc": "3",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "[\"The climber's body moves upwards along the rock face.\", \"The climber's position changes over time.\", 'The climber uses his hands and feet to grip the rock face.']",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{\"The climber's body moves upwards along the rock face.\": 'Gravity', \"The climber's position changes over time.\": 'Gravity', 'The climber uses his hands and feet to grip the rock face.': 'Friction'}"
+      },
+      "source_url": "https://storage.cdn-luma.com/dream_machine/c8c9f3ff-1c09-44d4-b2e3-4da92ff1050e/aac6fd5d-9b5d-4c8f-8d1c-c307736fba7e_result.mp4",
+      "sha256": "8e897bcead731805d4ad3b81b8e3748496edcab3b83182aa328d000d390a8bb5"
+    },
+    {
+      "sample_id": "videophy2-072eb5a79d008def9fcd",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A large pumpkin is placed on a small, flimsy stool; the stool breaks, and the pumpkin rolls onto the ground.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-072eb5a79d008def9fcd.mp4",
+      "prompt_group_id": "putting something onto something else that cannot support it so it falls down",
+      "generator": "hunyuan",
+      "semantic_label": "not_adherent",
+      "physics_label": "violation",
+      "semantic_score": 2.0,
+      "physics_score": 2.0,
+      "physical_rules": [
+        "The pumpkin changes shape from a whole object to two separate pieces.",
+        "One piece of the pumpkin moves away from the stool after being sliced.",
+        "The pumpkin's pieces maintain their original orange color after being sliced.",
+        "The pumpkin is sliced by a visible cutting tool"
+      ],
+      "raw_labels": {
+        "sa": "2",
+        "pc": "2",
+        "joint": "0",
+        "is_hard": "0",
+        "physics_rules_followed": "['The pumpkin changes shape from a whole object to two separate pieces.', 'One piece of the pumpkin moves away from the stool after being sliced.', \"The pumpkin's pieces maintain their original orange color after being sliced.\"]",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "[]",
+        "human_violated_rules": "['The pumpkin is sliced by a visible cutting tool']",
+        "metadata_rules": "{'The pumpkin is sliced by a visible cutting tool': ['Elasticity']}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/hunyuan_xdit/A_large_pumpkin_is_placed_on_a_small,_flimsy_stool;_the_stool_breaks,_and_the_pumpkin_rolls_onto_the_ground.mp4",
+      "sha256": "cd37a5d2c288bcdce24b631c3933501c3e912100e631f74cace6263d43c77b88"
+    },
+    {
+      "sample_id": "videophy2-0a421e424877313d7221",
+      "benchmark": "videophy2",
+      "split": "pilot300",
+      "prompt": "A single person builds a small, compact snowman using only their hands.",
+      "video_path": "../../data/videophy2/videos-pilot300/videophy2-0a421e424877313d7221.mp4",
+      "prompt_group_id": "making snowman",
+      "generator": "cosmos",
+      "semantic_label": "adherent",
+      "physics_label": "physical",
+      "semantic_score": 4.0,
+      "physics_score": 4.0,
+      "physical_rules": [
+        "The snowman's components change position from separate snow piles to a unified structure.",
+        "The volume of the snowman is less than the sum of the volumes of its initial snow components."
+      ],
+      "raw_labels": {
+        "sa": "4",
+        "pc": "4",
+        "joint": "1",
+        "is_hard": "0",
+        "physics_rules_followed": "[\"The snowman's components change position from separate snow piles to a unified structure.\"]",
+        "physics_rules_unfollowed": "[]",
+        "physics_rules_cannot_be_determined": "['The volume of the snowman is less than the sum of the volumes of its initial snow components.']",
+        "human_violated_rules": "[]",
+        "metadata_rules": "{\"The snowman's components change position from separate snow piles to a unified structure.\": 'Gravity', 'The volume of the snowman is less than the sum of the volumes of its initial snow components.': 'Conservation of Mass'}"
+      },
+      "source_url": "https://videophysics2testvideos.s3.us-east-2.amazonaws.com/cosmos_videophy2_test_challenging/A_single_person_builds_a_small,_compact_snowman_using_only_their_hands.mp4",
+      "sha256": "b06b2e7584eae883895a1d7baefb6348e4c6146e3176b3071ee1630eaaee6504"
+    }
+  ]
+}

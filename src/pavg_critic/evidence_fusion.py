@@ -96,10 +96,17 @@ class CoverageAwareEvidenceFusion:
             self._mechanics(mechanics_summary),
             self._vlm(candidates, reviews),
         )
-        total_family_weight = sum(self.weights.values())
-        coverage = sum(
-            self.weights[item.family] * item.coverage for item in bundles
-        ) / total_family_weight
+        # 动态有效族归一化：仅以已产出有效评估的证据族（status=="available"）权重作为分母，
+        # 避免因未接入或未运行模块将综合覆盖率不合理地拉低。
+        active_bundles = [
+            item for item in bundles if item.status == "available" and self.weights.get(item.family, 0) > 0
+        ]
+        active_weight = sum(self.weights[item.family] for item in active_bundles)
+        total_family_weight = active_weight if active_weight > 0 else sum(self.weights.values())
+        coverage = (
+            sum(self.weights[item.family] * item.coverage for item in active_bundles)
+            / total_family_weight
+        )
         available = [
             item
             for item in bundles

@@ -201,6 +201,7 @@ class _V2Critic:
             video_width=meta.get("width"),
             video_height=meta.get("height"),
             video_frames=meta.get("num_frames"),
+            postprocess_enabled=True,
         )
         manifest_path = self._artifacts.write_mask_manifest(self._sample_id, cid, manifest.to_dict())
         self._mask_manifest[cid] = manifest

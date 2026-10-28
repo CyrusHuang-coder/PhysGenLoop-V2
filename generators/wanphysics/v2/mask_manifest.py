@@ -43,6 +43,27 @@ def normalize_object_name(name: str) -> str:
     return re.sub(r"\s+", " ", str(name).strip().lower())
 
 
+def _find_nearest_mask(mask_dir: Path, object_name: str, target_frame: int, max_gap: int = 5) -> Path | None:
+    """时序掩码就近插值补全：若偶发丢帧，允许在 max_gap 内借用最近邻掩码。"""
+    if not mask_dir.exists():
+        return None
+    candidates = []
+    prefix = f"{object_name or 'object'}_"
+    for item in mask_dir.glob(f"{prefix}*.png"):
+        m = _MASK_FILENAME_RE.match(item.name)
+        if m:
+            try:
+                frame_idx = int(m.group("frame"))
+                candidates.append((abs(frame_idx - target_frame), item))
+            except ValueError:
+                continue
+    if not candidates:
+        return None
+    candidates.sort(key=lambda x: x[0])
+    best_dist, best_path = candidates[0]
+    return best_path if best_dist <= max_gap else None
+
+
 def _sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -238,6 +259,14 @@ def build_manifest(
         for frame in sorted(frames):
             filename = f"{disp or 'object'}_{int(frame):05d}.png"
             path = mask_dir / filename
+            if not path.exists() and postprocess_enabled:
+                nearest = _find_nearest_mask(mask_dir, disp, frame, max_gap=5)
+                if nearest is not None and nearest.exists():
+                    try:
+                        import shutil
+                        shutil.copy2(nearest, path)
+                    except Exception:
+                        pass
             if not path.exists():
                 any_invalid = True
                 mask_frames.append(

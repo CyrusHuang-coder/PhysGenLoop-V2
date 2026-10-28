@@ -25,8 +25,8 @@ _CATEGORY_ACTION = {
     "gravity_violation": RepairAction.PROMPT_REPAIR,
     "friction_violation": RepairAction.PROMPT_REPAIR,
     "contact_violation": RepairAction.PROMPT_REPAIR,
-    "collision_violation": RepairAction.LOCAL_EDITING,
-    "trajectory_violation": RepairAction.LOCAL_EDITING,
+    "collision_violation": RepairAction.PROMPT_REPAIR,
+    "trajectory_violation": RepairAction.PROMPT_REPAIR,
     "continuity_violation": RepairAction.LOCAL_EDITING,
     "appearance_violation": RepairAction.LOCAL_EDITING,
     "unknown_violation": RepairAction.REJECT,
@@ -120,7 +120,11 @@ class CategoryOnlyPolicy:
         context: RepairContext,
     ) -> RepairDecision:
         category = self.encoder.primary_category(critic_report)
-        preferred = _CATEGORY_ACTION[category]
+        preferred = _CATEGORY_ACTION.get(category, RepairAction.REJECT)
+        # 级联降级策略：如果上一轮局部修复未解决物理违规，当前轮自动降级为 prompt_repair 全局重构
+        if preferred is RepairAction.LOCAL_EDITING and RepairAction.LOCAL_EDITING in context.previous_actions:
+            if context.action_available(RepairAction.PROMPT_REPAIR):
+                preferred = RepairAction.PROMPT_REPAIR
         action, abstained, reason = _masked_choice(preferred, context)
         probabilities = _distribution(action, context)
         values = {item: probabilities[item] for item in ACTION_ORDER}

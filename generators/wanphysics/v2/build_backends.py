@@ -334,7 +334,9 @@ def build_v2_runner(
         raise ValueError("unsupported active critic profile")
 
     gpu_mode = str(runtime.get("gpu_mode", "dual_gpu"))
-    dual_gpu = gpu_mode == "dual_gpu"
+    from .preflight import gpu_count
+    n_gpu = gpu_count() or 1
+    dual_gpu = (gpu_mode == "dual_gpu") and (n_gpu >= 2)
     wan_gpu = runtime.get("generator_gpu", 0) if dual_gpu else None
     vllm_gpu = runtime.get("critic_gpu", 1) if dual_gpu else None
 

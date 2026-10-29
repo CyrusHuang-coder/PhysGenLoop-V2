@@ -8,9 +8,19 @@ envs/
 .env
 .env.*
 *.log
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Agents and local IDE tools
+.agents/
+.pytest_cache/
 
 # 大文件（README §推荐工程结构：Git 仅跟踪元数据）
-outputs/
+outputs/*
+!outputs/ablation_report/
+!outputs/.gitkeep
+!outputs/repair_training/
+
 data/
 models/
 checkpoints/
@@ -38,15 +48,14 @@ e2e_loop_full.py
 后续任务文档/
 worklog/
 archive/
+docs/
 
 # 保留少量示例与轻量证据
 !data/samples/example_*/
-!outputs/.gitkeep
-!outputs/repair_training/
-!outputs/repair_training/**
 
 # IDE
 .idea/
 .vscode/
 *.swp
 .DS_Store
+
